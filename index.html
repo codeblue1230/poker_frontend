@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/main.js"></script>
+<title>Know Your Hand</title>
+</head>
+
+<body>
+
+    <div class="cards-container">
+        <!-- Comments between divs are used to remove whitespace on webpage caused by default inline block behavior -->
+        <div class="cards" id="As" onclick="grabCard(this.id)">&#x1F0A1;</div><!--
+        --><div class="cards red_cards" id="Ah" onclick="grabCard(this.id)">&#x1F0B1;</div><!--
+        --><div class="cards" id="Ac" onclick="grabCard(this.id)">&#x1F0D1;</div><!--
+        --><div class="cards red_cards" id="Ad" onclick="grabCard(this.id)">&#x1F0C1;</div><!--
+        --><div class="cards" id="Ks" onclick="grabCard(this.id)">&#x1F0AE;</div><!--
+        --><div class="cards red_cards" id="Kh" onclick="grabCard(this.id)">&#x1F0BE;</div><!--
+        --><div class="cards" id="Kc" onclick="grabCard(this.id)">&#x1F0DE;</div><!--
+        --><div class="cards red_cards" id="Kd" onclick="grabCard(this.id)">&#x1F0CE;</div><!--
+        --><div class="cards" id="Qs" onclick="grabCard(this.id)">&#x1F0AD;</div><!--
+        --><div class="cards red_cards" id="Qh" onclick="grabCard(this.id)">&#x1F0BD;</div><!--
+        --><div class="cards" id="Qc" onclick="grabCard(this.id)">&#x1F0DD;</div><!--
+        --><div class="cards red_cards" id="Qd" onclick="grabCard(this.id)">&#x1F0CD;</div><!--
+        --><div class="cards" id="Js" onclick="grabCard(this.id)">&#x1F0AB;</div><!--
+        --><div class="cards red_cards" id="Jh" onclick="grabCard(this.id)">&#x1F0BB;</div><!--
+        --><div class="cards" id="Jc" onclick="grabCard(this.id)">&#x1F0DB;</div><!--
+        --><div class="cards red_cards" id="Jd" onclick="grabCard(this.id)">&#x1F0CB;</div><!--
+        --><div class="cards" id="10s" onclick="grabCard(this.id)">&#x1F0AA;</div><!--
+        --><div class="cards red_cards" id="10h" onclick="grabCard(this.id)">&#x1F0BA;</div><!--
+        --><div class="cards" id="10c" onclick="grabCard(this.id)">&#x1F0DA;</div><!--
+        --><div class="cards red_cards" id="10d" onclick="grabCard(this.id)">&#x1F0CA;</div><!--
+        --><div class="cards" id="9s" onclick="grabCard(this.id)">&#x1F0A9;</div><!--
+        --><div class="cards red_cards" id="9h" onclick="grabCard(this.id)">&#x1F0B9;</div><!--
+        --><div class="cards" id="9c" onclick="grabCard(this.id)">&#x1F0D9;</div><!--
+        --><div class="cards red_cards" id="9d" onclick="grabCard(this.id)">&#x1F0C9;</div><!--
+        --><div class="cards" id="8s" onclick="grabCard(this.id)">&#x1F0A8;</div><!--
+        --><div class="cards red_cards" id="8h" onclick="grabCard(this.id)">&#x1F0B8;</div><!--
+        --><div class="cards" id="8c" onclick="grabCard(this.id)">&#x1F0D8;</div><!--
+        --><div class="cards red_cards" id="8d" onclick="grabCard(this.id)">&#x1F0C8;</div><!--
+        --><div class="cards" id="7s" onclick="grabCard(this.id)">&#x1F0A7;</div><!--
+        --><div class="cards red_cards" id="7h" onclick="grabCard(this.id)">&#x1F0B7;</div><!--
+        --><div class="cards" id="7c" onclick="grabCard(this.id)">&#x1F0D7;</div><!--
+        --><div class="cards red_cards" id="7d" onclick="grabCard(this.id)">&#x1F0C7;</div><!--
+        --><div class="cards" id="6s" onclick="grabCard(this.id)">&#x1F0A6;</div><!--
+        --><div class="cards red_cards" id="6h" onclick="grabCard(this.id)">&#x1F0B6;</div><!--
+        --><div class="cards" id="6c" onclick="grabCard(this.id)">&#x1F0D6;</div><!--
+        --><div class="cards red_cards" id="6d" onclick="grabCard(this.id)">&#x1F0C6;</div><!--
+        --><div class="cards" id="5s" onclick="grabCard(this.id)">&#x1F0A5;</div><!--
+        --><div class="cards red_cards" id="5h" onclick="grabCard(this.id)">&#x1F0B5;</div><!--
+        --><div class="cards" id="5c" onclick="grabCard(this.id)">&#x1F0D5;</div><!--
+        --><div class="cards red_cards" id="5d" onclick="grabCard(this.id)">&#x1F0C5;</div><!--
+        --><div class="cards" id="4s" onclick="grabCard(this.id)">&#x1F0A4;</div><!--
+        --><div class="cards red_cards" id="4h" onclick="grabCard(this.id)">&#x1F0B4;</div><!--
+        --><div class="cards" id="4c" onclick="grabCard(this.id)">&#x1F0D4;</div><!--
+        --><div class="cards red_cards" id="4d" onclick="grabCard(this.id)">&#x1F0C4;</div><!--
+        --><div class="cards" id="3s" onclick="grabCard(this.id)">&#x1F0A3;</div><!--
+        --><div class="cards red_cards" id="3h" onclick="grabCard(this.id)">&#x1F0B3;</div><!--
+        --><div class="cards" id="3c" onclick="grabCard(this.id)">&#x1F0D3;</div><!--
+        --><div class="cards red_cards" id="3d" onclick="grabCard(this.id)">&#x1F0C3;</div><!--
+        --><div class="cards" id="2s" onclick="grabCard(this.id)">&#x1F0A2;</div><!--
+        --><div class="cards red_cards" id="2h" onclick="grabCard(this.id)">&#x1F0B2;</div><!--
+        --><div class="cards" id="2c" onclick="grabCard(this.id)">&#x1F0D2;</div><!--
+        --><div class="cards red_cards" id="2d" onclick="grabCard(this.id)">&#x1F0C2;</div><!---->
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+.cards-container {
+    overflow-x: scroll;
+    white-space: nowrap; /* Prevents line breaks */
+    font-size: 200px; /* Adjust the font size as needed */
+    width: 75%;
+    margin: 50px auto;
+    background-color: rgb(170, 170, 170);
+    border: green solid 5px;
+}
+
+.cards {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-bottom: 25px;
+}
+
+.red_cards {
+    color: rgb(183, 18, 18);
+}
