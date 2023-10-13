@@ -1,7 +1,7 @@
 .cards-container {
     overflow-x: scroll;
     white-space: nowrap; /* Prevents line breaks */
-    font-size: 200px; /* Adjust the font size as needed */
+    font-size: 200px; 
     width: 75%;
     margin: 50px auto;
     background-color: rgb(170, 170, 170);
@@ -18,3 +18,20 @@
 .red_cards {
     color: rgb(183, 18, 18);
 }
+
+#clicked_cards {
+    font-size: 200px;
+}
+
+#hand {
+    font-size: 30px;
+}
+
+#best_cards {
+    font-size: 200px;
+}
+
+#sub {
+    display: none;
+}
+
