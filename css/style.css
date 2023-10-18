@@ -1,18 +1,22 @@
 .cards-container {
     overflow-x: scroll;
     white-space: nowrap; /* Prevents line breaks */
-    font-size: 200px; 
     width: 75%;
-    margin: 50px auto;
+    margin: 50px auto 0 auto;
     background-color: rgb(170, 170, 170);
     border: green solid 5px;
+    border-radius: 10px;
 }
 
 .cards {
     display: inline-block;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-bottom: 25px;
+    padding: 0 5px 25px 5px;
+    cursor: pointer;
+    font-size: 150px; 
+}
+
+.cards:hover {
+    background-color: white;
 }
 
 .red_cards {
@@ -20,18 +24,27 @@
 }
 
 #clicked_cards {
-    font-size: 200px;
+    font-size: 150px;
+    text-align: center;
 }
 
 #hand {
     font-size: 30px;
+    text-align: center;
 }
 
 #best_cards {
-    font-size: 200px;
+    font-size: 150px;
+    text-align: center;
 }
 
 #sub {
     display: none;
+    margin: 0 auto;
+}
+
+#new_hand {
+    display: none;
+    margin: 0 auto 20px auto;
 }
 

@@ -104,5 +104,13 @@ const testApi = async (h1, h2, c1, c2, c3, c4, c5) => {
         }
         else {fiveBest.append(cards[item][0])}
     }
+    let sub = document.getElementById("sub")
+    sub.style.display = "none"
+    let newHand = document.getElementById("new_hand")
+    newHand.style.display = "block"
+}
+
+const clearHand = () => {
+    location.reload()
 }
 
