@@ -55,19 +55,41 @@ let cards = {
 let cardCount = 0
 let cardObj = {}
 let cardList = []
+let holeCount = 0
+let comCount = 0
 
 const grabCard = (card) => {
-    let addCard = document.getElementById("clicked_cards")
-    if (cardCount === 6) {
+    if (cardCount === 7) {return}
+    let newHand = document.getElementById("new_hand")
+    let playerCard = document.getElementById("hole_cards")
+    let comCards = document.getElementById("com_cards")
+    let pHead = document.getElementById("p_heading")
+    let cHead = document.getElementById("c_heading")
+    newHand.style.display = "block"
+    pHead.style.display = "block"
+    cardObj[card] = card
+    if (comCount < 5 && holeCount == 2) {
         if (cards[card][1] === "red") {
             let cardElement = document.createElement("span")
             cardElement.innerHTML = cards[card][0]
-            addCard.append(cardElement)
+            comCards.append(cardElement)
             cardElement.classList.add("red_cards")
         }
-        else { addCard.append(cards[card][0]) }
-        cardCount++
-        cardObj[card] = card
+        else { comCards.append(cards[card][0]) }
+        cHead.style.display = "block"
+        comCount++
+    }
+    if (holeCount < 2) {
+        if (cards[card][1] === "red") {
+            let cardElement = document.createElement("span")
+            cardElement.innerHTML = cards[card][0]
+            playerCard.append(cardElement)
+            cardElement.classList.add("red_cards")
+        }
+        else { playerCard.append(cards[card][0]) }
+        holeCount++
+    }
+    if (holeCount === 2 && comCount === 5) {
         let sub = document.getElementById("sub")
         sub.style.display = "block"
         const keys = Object.keys(cardObj)
@@ -75,17 +97,7 @@ const grabCard = (card) => {
             cardList.push(keys[i])
         }
     }
-    else if (cardCount < 6 ) {
-        if (cards[card][1] === "red") {
-            let cardElement = document.createElement("span")
-            cardElement.innerHTML = cards[card][0]
-            addCard.append(cardElement)
-            cardElement.classList.add("red_cards")
-        }
-        else { addCard.append(cards[card][0]) }
-        cardCount++
-        cardObj[card] = card
-    }
+    cardCount++
 }
 
 const testApi = async (h1, h2, c1, c2, c3, c4, c5) => {
@@ -106,11 +118,53 @@ const testApi = async (h1, h2, c1, c2, c3, c4, c5) => {
     }
     let sub = document.getElementById("sub")
     sub.style.display = "none"
-    let newHand = document.getElementById("new_hand")
-    newHand.style.display = "block"
+    fiveBest.style.paddingBottom = "25px"
+    fiveBest.style.border = "solid white 5px"
+    fiveBest.style.borderRadius = "10px"
+
 }
 
 const clearHand = () => {
     location.reload()
+}
+
+const switchBright = (domButton) => {
+    let button = document.getElementById(domButton)
+    let allButtons = document.querySelectorAll(".all_buttons")
+    let lightButtons = document.querySelectorAll(".all_buttons_light")
+    let body = document.body
+    let mainHeading = body.querySelector("h1")
+    let cardContainer = document.getElementById("cards-container")
+    let whiteSuits = document.querySelectorAll(".white")
+    let blackSuits = document.querySelectorAll(".black")
+    let bestCards = document.getElementById("best_cards")
+    if (body.style.backgroundColor === "white") {
+        blackSuits.forEach((element) => {
+            element.classList.toggle("black")
+        })
+        lightButtons.forEach((item) => {
+            item.classList.toggle("all_buttons_light")
+        })
+        body.style.backgroundColor = "black"
+        button.innerHTML = "Light Mode"
+        cardContainer.style.backgroundColor = "black"
+        cardContainer.style.border = "white solid 5px"
+        mainHeading.style.color = "white"
+        bestCards.style.border = "white solid 5px"
+    }
+    else {
+        whiteSuits.forEach((element) => {
+            element.classList.toggle("black")
+        })
+        allButtons.forEach((item) => {
+            item.classList.toggle("all_buttons_light")
+        })
+        body.style.backgroundColor = "white"
+        button.innerHTML = "Dark Mode"
+        cardContainer.style.backgroundColor = "white"
+        mainHeading.style.color = "black"
+        cardContainer.style.border = "black solid 5px"
+        bestCards.style.border = "black solid 5px"
+    }
 }
 

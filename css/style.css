@@ -1,11 +1,36 @@
-.cards-container {
+body {
+    background-color: black;
+}
+
+#light {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+}
+
+#cards-container {
     overflow-x: scroll;
     white-space: nowrap; /* Prevents line breaks */
-    width: 75%;
-    margin: 50px auto 0 auto;
-    background-color: rgb(170, 170, 170);
-    border: green solid 5px;
+    width: 85%;
+    margin: 25px auto 0 auto;
+    background-color: black;
+    border: white solid 5px;
     border-radius: 10px;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgb(255, 0, 0) black; /* For Firefox */
+}
+
+#cards-container::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+}
+
+#cards-container::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 0, 0); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+}
+
+#cards-container::-webkit-scrollbar-track {
+    background-color: black; /* Color of the scrollbar track */
 }
 
 .cards {
@@ -16,26 +41,61 @@
 }
 
 .cards:hover {
-    background-color: white;
+    background-color: green;
 }
 
 .red_cards {
-    color: rgb(183, 18, 18);
+    color: rgb(255, 0, 0);
 }
 
-#clicked_cards {
+#p_heading, #c_heading {
+    display: none;
+}
+
+#hole_cards, #com_cards {
     font-size: 150px;
-    text-align: center;
 }
 
 #hand {
     font-size: 30px;
     text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0;
 }
 
 #best_cards {
     font-size: 150px;
     text-align: center;
+    background-color: green;
+}
+
+.all_buttons {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: solid white 3px;
+    font-weight: bold;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.all_buttons:hover {
+    background-color: red;
+    border: solid red 3px;
+}
+
+.all_buttons_light {
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    border: solid rgb(0, 0, 0) 3px;
+    font-weight: bold;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: white;
+}
+
+.all_buttons_light:hover {
+    background-color: red;
+    border: solid red 3px;
 }
 
 #sub {
@@ -48,3 +108,85 @@
     margin: 0 auto 20px auto;
 }
 
+.white {
+    color: white;
+}
+
+.black {
+    color: black;
+}
+
+/* Media Queries */
+
+@media (max-width: 767px) {
+    #cards-container {
+        width: 100%;
+    }
+    #best_cards {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 1600px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 130px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 115px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 110px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 105px;
+    }
+}
+
+/* Adjust card sizing on screens smaller than 400px */
+
+@media (max-width: 398px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 95px;
+    }
+}
+
+@media (max-width: 363px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 90px;
+    }
+}
+
+@media (max-width: 347px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 85px;
+    }
+}
+
+@media (max-width: 329px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 311px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 75px;
+    }
+}
+
+@media (max-width: 294px) {
+    .cards, #best_cards, #hole_cards, #com_cards {
+        font-size: 70px;
+    }
+}
