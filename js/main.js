@@ -92,18 +92,22 @@ const grabCard = (card) => {
     if (holeCount === 2 && comCount === 5) {
         let sub = document.getElementById("sub")
         sub.style.display = "block"
-        const keys = Object.keys(cardObj)
-        for (let i = 0; i < keys.length; i++) {
-            cardList.push(keys[i])
-        }
+        // const keys = Object.keys(cardObj)
+        // for (let i = 0; i < keys.length; i++) {
+        //     cardList.push(keys[i])
+        // }
     }
     cardCount++
 }
 
-const testApi = async (h1, h2, c1, c2, c3, c4, c5) => {
+const testApi = async () => {
+    const keys = Object.keys(cardObj)
+    for (let i = 0; i < keys.length; i++) {
+        cardList.push(keys[i])
+    }
     let hand = document.getElementById("hand")
     let fiveBest = document.getElementById("best_cards")
-    let response = await axios.get(`https://poker1230.pythonanywhere.com/${h1}/${h2}&${c1}/${c2}/${c3}/${c4}/${c5}`)
+    let response = await axios.get(`https://poker1230.pythonanywhere.com/${cardList[0]}/${cardList[1]}&${cardList[2]}/${cardList[3]}/${cardList[4]}/${cardList[5]}/${cardList[6]}`)
     let key = Object.keys(response.data)
     hand.innerHTML = key
     let value = response.data[key]
@@ -132,6 +136,8 @@ const switchBright = (domButton) => {
     let button = document.getElementById(domButton)
     let allButtons = document.querySelectorAll(".all_buttons")
     let lightButtons = document.querySelectorAll(".all_buttons_light")
+    let redCards = document.querySelectorAll(".red_cards")
+    let redCardsLight = document.querySelectorAll(".red_cards_light")
     let body = document.body
     let mainHeading = body.querySelector("h1")
     let cardContainer = document.getElementById("cards-container")
@@ -145,12 +151,16 @@ const switchBright = (domButton) => {
         lightButtons.forEach((item) => {
             item.classList.toggle("all_buttons_light")
         })
+        redCardsLight.forEach((element) => {
+            element.classList.toggle("red_cards_light")
+        })
         body.style.backgroundColor = "black"
         button.innerHTML = "Light Mode"
         cardContainer.style.backgroundColor = "black"
         cardContainer.style.border = "white solid 5px"
         mainHeading.style.color = "white"
-        bestCards.style.border = "white solid 5px"
+        bestCards.style.backgroundColor = "rgb(0, 85, 0)"
+        if (cardList.length === 7) {bestCards.style.border = "white solid 5px"}
     }
     else {
         whiteSuits.forEach((element) => {
@@ -159,12 +169,16 @@ const switchBright = (domButton) => {
         allButtons.forEach((item) => {
             item.classList.toggle("all_buttons_light")
         })
+        redCards.forEach((element) => {
+            element.classList.toggle("red_cards_light")
+        })
         body.style.backgroundColor = "white"
         button.innerHTML = "Dark Mode"
         cardContainer.style.backgroundColor = "white"
         mainHeading.style.color = "black"
         cardContainer.style.border = "black solid 5px"
-        bestCards.style.border = "black solid 5px"
+        bestCards.style.backgroundColor = "rgb(0, 200, 0)"
+        if (cardList.length === 7) {bestCards.style.border = "black solid 5px"}
     }
 }
 

@@ -45,7 +45,11 @@ body {
 }
 
 .red_cards {
-    color: rgb(255, 0, 0);
+    color: rgb(255, 153, 153);
+}
+
+.red_cards_light {
+    color: red;
 }
 
 #p_heading, #c_heading {
@@ -66,7 +70,11 @@ body {
 #best_cards {
     font-size: 150px;
     text-align: center;
-    background-color: green;
+    background-color: rgb(0, 85, 0);
+}
+
+.test {
+    color: rgb(0, 200, 0);
 }
 
 .all_buttons {
