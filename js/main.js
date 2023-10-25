@@ -58,6 +58,14 @@ let cardList = []
 let holeCount = 0
 let comCount = 0
 
+const checkCSS = () => {
+    let stylesheet = document.getElementById("stylesheet")
+    const storedCSS = localStorage.getItem('CSS')
+    if (storedCSS) {
+        stylesheet.href = storedCSS
+    }
+}
+
 const grabCard = (card) => {
     if (cardCount === 7) {return}
     let newHand = document.getElementById("new_hand")
@@ -121,11 +129,10 @@ const testApi = async () => {
         else {fiveBest.append(cards[item][0])}
     }
     let sub = document.getElementById("sub")
+    let bestCards = document.getElementById("best_cards")
     sub.style.display = "none"
     fiveBest.style.paddingBottom = "25px"
-    fiveBest.style.border = "solid white 5px"
-    fiveBest.style.borderRadius = "10px"
-
+    bestCards.classList.toggle("best_cards_border")
 }
 
 const clearHand = () => {
@@ -134,51 +141,20 @@ const clearHand = () => {
 
 const switchBright = (domButton) => {
     let button = document.getElementById(domButton)
-    let allButtons = document.querySelectorAll(".all_buttons")
-    let lightButtons = document.querySelectorAll(".all_buttons_light")
-    let redCards = document.querySelectorAll(".red_cards")
-    let redCardsLight = document.querySelectorAll(".red_cards_light")
-    let body = document.body
-    let mainHeading = body.querySelector("h1")
-    let cardContainer = document.getElementById("cards-container")
-    let whiteSuits = document.querySelectorAll(".white")
-    let blackSuits = document.querySelectorAll(".black")
-    let bestCards = document.getElementById("best_cards")
-    if (body.style.backgroundColor === "white") {
-        blackSuits.forEach((element) => {
-            element.classList.toggle("black")
-        })
-        lightButtons.forEach((item) => {
-            item.classList.toggle("all_buttons_light")
-        })
-        redCardsLight.forEach((element) => {
-            element.classList.toggle("red_cards_light")
-        })
-        body.style.backgroundColor = "black"
+    let stylesheet = document.getElementById("stylesheet")
+    let baseURL = window.location.origin
+    stylesheet.href = "./css/light.css"
+    const storedCSS = localStorage.getItem('CSS')
+    if (storedCSS === `${baseURL}/css/light.css`) {
+        stylesheet.href = "./css/style.css"
+        localStorage.setItem("CSS", stylesheet.href)
         button.innerHTML = "Light Mode"
-        cardContainer.style.backgroundColor = "black"
-        cardContainer.style.border = "white solid 5px"
-        mainHeading.style.color = "white"
-        bestCards.style.backgroundColor = "rgb(0, 85, 0)"
-        if (cardList.length === 7) {bestCards.style.border = "white solid 5px"}
     }
-    else {
-        whiteSuits.forEach((element) => {
-            element.classList.toggle("black")
-        })
-        allButtons.forEach((item) => {
-            item.classList.toggle("all_buttons_light")
-        })
-        redCards.forEach((element) => {
-            element.classList.toggle("red_cards_light")
-        })
-        body.style.backgroundColor = "white"
+    else if (storedCSS === `${baseURL}/css/style.css`) {
+        stylesheet.href = "./css/light.css"
+        localStorage.setItem("CSS", stylesheet.href)
         button.innerHTML = "Dark Mode"
-        cardContainer.style.backgroundColor = "white"
-        mainHeading.style.color = "black"
-        cardContainer.style.border = "black solid 5px"
-        bestCards.style.backgroundColor = "rgb(0, 200, 0)"
-        if (cardList.length === 7) {bestCards.style.border = "black solid 5px"}
     }
+    localStorage.setItem("CSS", stylesheet.href)
 }
 

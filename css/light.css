@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: white;
 }
 
 #light {
@@ -8,17 +8,13 @@ body {
     left: 1%;
 }
 
-h1 {
-    color: white;
-}
-
 #cards-container {
     overflow-x: scroll;
     white-space: nowrap; /* Prevents line breaks */
     width: 85%;
     margin: 25px auto 0 auto;
-    background-color: black;
-    border: white solid 5px;
+    background-color: white;
+    border: black solid 5px;
     border-radius: 10px;
     scrollbar-width: thin; /* For Firefox */
     scrollbar-color: rgb(255, 0, 0) black; /* For Firefox */
@@ -45,16 +41,15 @@ h1 {
 }
 
 .cards:hover {
-    background-color: rgb(0, 128, 0);
+    background-color: rgb(0, 200, 0);
 }
 
 .red_cards {
-    color: rgb(255, 153, 153);
+    color: red;
 }
 
 #p_heading, #c_heading {
     display: none;
-    color: white;
 }
 
 #hole_cards, #com_cards {
@@ -66,17 +61,16 @@ h1 {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 0;
-    color: white;
 }
 
 #best_cards {
     font-size: 150px;
     text-align: center;
-    background-color: rgb(0, 85, 0); 
+    background-color: rgb(0, 200, 0);
 }
 
 .best_cards_border {
-    border: solid white 5px;
+    border: solid black 5px;
     border-radius: 10px;
 }
 
@@ -85,20 +79,6 @@ h1 {
 }
 
 .all_buttons {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    border: solid white 3px;
-    font-weight: bold;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.all_buttons:hover {
-    background-color: red;
-    border: solid red 3px;
-}
-
-.all_buttons_light {
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
     border: solid rgb(0, 0, 0) 3px;
@@ -108,7 +88,7 @@ h1 {
     color: white;
 }
 
-.all_buttons_light:hover {
+.all_buttons:hover {
     background-color: red;
     border: solid red 3px;
 }
@@ -124,7 +104,7 @@ h1 {
 }
 
 .black {
-    color: white;
+    color: black;
 }
 
 /* Media Queries */
